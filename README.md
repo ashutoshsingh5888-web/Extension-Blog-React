@@ -7,12 +7,27 @@ A modern React blog starter for extension content with:
 - Individual SEO-friendly post routes
 - Structured data (JSON-LD)
 - `robots.txt` and `sitemap.xml`
+- Express backend API for uploading posts
 
-## Run locally
+## Run locally (frontend only)
 
 ```bash
 npm install
 npm run dev
+```
+
+## Run backend API
+
+```bash
+npm run backend
+```
+
+The backend upload guide is available at [`BACKEND_UPLOAD_GUIDE.md`](./BACKEND_UPLOAD_GUIDE.md).
+
+## Run frontend + backend together
+
+```bash
+npm run dev:full
 ```
 
 ## Build
