@@ -1,3 +1,10 @@
+/*
+ * NOTE: backend/data/posts.json is a flat-file store that is suitable for small blogs
+ * (roughly up to ~50 posts).
+ * If your post count grows beyond that, migrate to SQLite (for example with
+ * the better-sqlite3 package) for safer concurrent writes and improved scalability.
+ */
+
 import { createServer } from 'http'
 import path from 'path'
 import { promises as fs } from 'fs'
@@ -16,7 +23,7 @@ const sendJson = (res, statusCode, payload) => {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, x-upload-token',
   })
   res.end(JSON.stringify(payload))
 }
@@ -90,7 +97,7 @@ const server = createServer(async (req, res) => {
     res.writeHead(204, {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Headers': 'Content-Type, x-upload-token',
     })
     res.end()
     return
@@ -108,6 +115,14 @@ const server = createServer(async (req, res) => {
   }
 
   if (req.method === 'POST' && req.url === '/api/posts') {
+    const uploadToken = process.env.UPLOAD_TOKEN
+    const requestToken = req.headers['x-upload-token']
+
+    if (!uploadToken || requestToken !== uploadToken) {
+      sendJson(res, 401, { error: 'Unauthorized' })
+      return
+    }
+
     try {
       const body = await readBody(req)
       const {

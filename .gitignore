@@ -5,3 +5,4 @@ npm-debug.log*
 
 backend/uploads/*
 !backend/uploads/.gitkeep
+.env
