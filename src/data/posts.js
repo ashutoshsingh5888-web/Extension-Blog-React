@@ -1,239 +1,60 @@
-const categoryBlueprints = [
-  {
-    category: 'Productivity',
-    subcategories: ['Developers', 'Remote Work', 'Knowledge Management', 'Automation', 'Focus Systems'],
-    tags: ['workflow', 'automation', 'performance'],
-    topics: [
-      'Tab strategy frameworks for sprint-heavy engineering teams',
-      'Deep work browser profiles for async product organizations',
-      'AI summarizers for long documentation review cycles',
-      'Meeting capture extensions for distributed standups',
-      'Code review acceleration with inline annotation assistants',
-      'Cross-browser session syncing for multi-device professionals',
-      'Inbox triage systems that reduce notification fatigue',
-      'Read-later pipelines for technical research workloads',
-      'Keyboard-first browsing stacks for high-output creators',
-      'Task-to-tab automation for weekly planning rituals',
-      'Knowledge graph extensions for product discovery teams',
-      'Clipboard managers for repeatable developer operations',
-      'Research bookmarking taxonomies for analytics specialists',
-      'Timeboxing dashboards for makers and indie founders',
-      'Workload balancing with browser-based Kanban overlays',
-      'Single-tab discipline techniques for ADHD-friendly workflows',
-      'Extension bundles for customer success response speed',
-      'Sales enablement stacks for quick proposal turnaround',
-      'Writer-focused distraction blockers for editorial teams',
-      'Calendar context overlays for agency project velocity',
-      'Prompt library extensions for AI-assisted writing',
-      'Universal search tools across docs, tasks, and repositories',
-      'Browser automations for repetitive QA checklists',
-      'Documentation clipping systems for engineering onboarding',
-      'Reading mode extensions for analyst report digestion',
-      'Cross-tab note linking for strategy and planning',
-      'Attention audit tools for reducing tab overload',
-      'Side-panel command centers for operations managers',
-      'Offline-friendly extension stacks for travel-heavy teams',
-      'Micro-habit browser nudges for sustained focus',
-      'Session replay note extensions for learning and retention',
-      'Decision logs captured directly from browser research',
-      'Work journaling extensions for career growth tracking',
-      'URL parameter cleaners to speed repetitive research tasks',
-      'Unified screenshot workflows for product and support teams',
-      'Translation helpers for multilingual collaboration',
-      'Browser timers designed for cognitive recovery breaks',
-      'Template injectors for faster stakeholder communication',
-      'Multi-account context switching without cognitive drag',
-      'Autofill governance for secure productivity gains',
-      'Developer pair-programming support extensions',
-      'Academic research assistants for literature scanning',
-      'Resume and portfolio workflow accelerators',
-      'Compliance-friendly productivity stacks for regulated sectors',
-      'No-code automations for startup operators',
-      'Reading queue intelligence for newsletter-heavy professionals',
-      'Command palette extensions for browser-native efficiency',
-      'Browser-native mind mapping for ideation sessions',
-      'Daily review dashboards for strategic prioritization',
-      'End-of-week cleanup routines for extension hygiene',
-    ],
-  },
-  {
-    category: 'Security',
-    subcategories: ['Privacy', 'Threat Detection', 'Identity', 'Safe Browsing', 'Compliance'],
-    tags: ['privacy', 'security', 'risk-management'],
-    topics: [
-      'Tracker blocking baselines for privacy-conscious households',
-      'Password manager extension hardening playbook',
-      'Phishing detection heuristics in modern browser add-ons',
-      'Safe download scanners for freelance professionals',
-      'Cookie consent automation without privacy regressions',
-      'DNS-over-HTTPS helpers for safer public Wi-Fi use',
-      'Zero-trust browsing habits for startup security teams',
-      'Identity breach alerts integrated with browser workflows',
-      'Secure form filling for finance and healthcare portals',
-      'Malvertising defenses for ad-heavy publication browsing',
-      'Isolation extensions for high-risk research environments',
-      'Open-source vs proprietary security extensions compared',
-      'Threat intelligence feeds surfaced in-browser',
-      'Secure link expansion tools for social media researchers',
-      'Browser extension permission audits step by step',
-      'Enterprise policy enforcement through managed extensions',
-      'VPN companion extensions and their security tradeoffs',
-      'Supply chain risk checks before extension installation',
-      'Client-side encryption helpers for document sharing',
-      'Dark web monitoring alerts and practical response plans',
-      'Shadow IT discovery using endpoint browser telemetry',
-      'Web3 wallet safety extensions for new users',
-      'Safe clipboard management to prevent credential leakage',
-      'Session hijacking prevention for remote-first companies',
-      'Secure browser profile segmentation for consultants',
-      'Certificate transparency monitors for security engineers',
-      'Extension sandboxing models across major browsers',
-      'MFA workflow optimizations without weakening controls',
-      'Data loss prevention prompts inside web applications',
-      'Ransomware early warning indicators in web behavior',
-      'Consumer antivirus extensions: real capability review',
-      'Child-safe browsing controls for family devices',
-      'Fraud prevention extensions for e-commerce operators',
-      'SOC analyst browser toolkit for daily triage',
-      'GDPR-aware browsing extensions for marketing teams',
-      'HIPAA-conscious extension practices for telehealth staff',
-      'Security awareness nudges delivered through extensions',
-      'API key leak detection while browsing repositories',
-      'Credential stuffing defense support in browser tools',
-      'Insider threat indicators during routine web activity',
-      'Secure research protocols for journalists and activists',
-      'Biometric auth extension support and caveats',
-      'Behavioral anomaly alerts for account compromise detection',
-      'Browser forensics helpers after suspicious activity',
-      'Endpoint posture checks tied to extension controls',
-      'Security extension stack for small legal firms',
-      'Cross-border data transfer safeguards in browser use',
-      'E-signature verification extensions for contract workflows',
-      'Incident response runbooks embedded in browser sidebars',
-      'Quarterly extension risk review checklist for teams',
-    ],
-  },
-  {
-    category: 'Marketing',
-    subcategories: ['SEO', 'Content Strategy', 'Analytics', 'Growth', 'Social Media'],
-    tags: ['seo', 'content-marketing', 'analytics'],
-    topics: [
-      'Keyword intent mapping with SERP overlay extensions',
-      'On-page technical audits for editorial publishing teams',
-      'Competitor content gap analysis from the browser',
-      'Schema markup validation workflows for marketers',
-      'Link prospecting systems for digital PR specialists',
-      'Conversion-rate annotation tools for landing page teams',
-      'Attribution troubleshooting with browser debugging add-ons',
-      'Social listening dashboards for community-led growth',
-      'Newsletter optimization research using extension telemetry',
-      'Affiliate compliance checks for creator partnerships',
-      'A/B testing note capture during campaign reviews',
-      'Influencer vetting workflows with audience quality signals',
-      'Programmatic SEO quality checks before publishing',
-      'Local SEO research stacks for multi-location brands',
-      'Paid search ad copy intelligence from SERP previews',
-      'Video SEO support extensions for YouTube strategists',
-      'Retail ecommerce merchandising analysis in-browser',
-      'Voice-of-customer mining from review platforms',
-      'Funnel friction audits for B2B lead generation',
-      'Editorial calendar planning with browser productivity tools',
-      'Tag governance and taxonomy hygiene for analytics teams',
-      'UTM enforcement helpers for campaign consistency',
-      'Creator economy research workflows for brand teams',
-      'AI-assisted headline testing for higher click-through rates',
-      'Digital accessibility checks that improve organic reach',
-      'Geo-targeted SERP research for international expansion',
-      'Core Web Vitals monitoring for content marketers',
-      'Audience segmentation insights from browser-based datasets',
-      'Customer journey mapping with extension-driven notes',
-      'B2B account research acceleration for demand generation',
-      'Podcast promotion stacks for owned media growth',
-      'Referral program optimization with tracking helpers',
-      'Reddit and forum research methods for messaging clarity',
-      'Lifecycle email teardown workflows for retention teams',
-      'Campaign QA checklist automation in browser',
-      'PR monitoring extensions for brand reputation management',
-      'Position tracking routines for weekly SEO standups',
-      'SaaS comparison page optimization research',
-      'Marketplace listing optimization for app growth teams',
-      'Growth experiment repositories embedded in browser',
-      'B2C seasonal trend analysis using extension datasets',
-      'Brand safety verification before ad placement',
-      'Creative swipe file systems for performance marketers',
-      'Customer interview synthesis directly from web transcripts',
-      'Search console workflow enhancements with companion tools',
-      'Analytics annotation discipline for campaign learnings',
-      'Lifecycle stage scoring from browser research signals',
-      'Cross-channel reporting quality assurance extensions',
-      'Pre-launch marketing readiness checks for product launches',
-      'Quarterly marketing stack rationalization playbook',
-    ],
-  },
-  {
-    category: 'Design',
-    subcategories: ['UX Research', 'Accessibility', 'UI Systems', 'Prototyping', 'Design Ops'],
-    tags: ['design', 'ux', 'accessibility'],
-    topics: [
-      'Contrast auditing workflows for inclusive interface design',
-      'Typography inspection tools for brand-consistent UI',
-      'Spacing and layout analyzers for design system fidelity',
-      'Heuristic evaluation extensions for rapid UX audits',
-      'User flow capture methods during moderated testing',
-      'Design token extraction from production websites',
-      'Color palette benchmarking across competitor products',
-      'Accessibility tree viewers for front-end collaboration',
-      'Screenshot annotation tools for async design critique',
-      'Prototype behavior validation directly in browser',
-      'Motion reduction checks for vestibular accessibility',
-      'Form usability diagnostics for conversion-critical journeys',
-      'Content readability scoring for public sector websites',
-      'Iconography consistency audits in enterprise interfaces',
-      'Localization-ready design checks for multilingual products',
-      'Dark mode quality assurance with browser extensions',
-      'Heatmap-assisted UX review workflows',
-      'User onboarding friction analysis using extension notes',
-      'Inclusive language scanning across product touchpoints',
-      'Component inventory building from live applications',
-      'Design debt triage for fast-growing product teams',
-      'Remote usability test synthesis in collaborative sidebars',
-      'ARIA pattern validation for custom widgets',
-      'Persona-based walkthrough checklists for researchers',
-      'Interaction cost measurement for dense dashboards',
-      'Error state experience audits for support reduction',
-      'Cross-browser rendering checks for design QA',
-      'Visual hierarchy diagnostics for content-heavy pages',
-      'Checkout and payment UX benchmark analysis',
-      'Documentation workflows for design system adoption',
-      'Microcopy review helpers for trust and clarity',
-      'Accessibility-first handoff processes for engineering teams',
-      'Mobile viewport simulation stacks for responsive UX',
-      'Design critique archives for team learning loops',
-      'Qualitative insight tagging during participant interviews',
-      'Research repository linking from browser bookmarks',
-      'Interaction pattern libraries for enterprise product UX',
-      'Tooltip and onboarding pattern evaluation checklist',
-      'No-code prototype validation for stakeholder alignment',
-      'Visual regression spotting with extension-assisted capture',
-      'Accessibility compliance evidence collection workflows',
-      'Usability benchmark scorecards for quarterly reviews',
-      'Cognitive load reduction techniques in complex interfaces',
-      'Empty-state design research for activation improvement',
-      'Survey and poll analysis helpers for UX teams',
-      'Design ops automation for review and approvals',
-      'Journey mapping extensions for service design teams',
-      'Ethical UX checks for persuasive design patterns',
-      'Post-launch UX monitoring routines in-browser',
-      'Quarterly design toolkit consolidation and standards',
-    ],
-  },
-]
+const rawPosts = `#	title	excerpt	content	author	category	subcategory	tags	slug
+1	uBlock Origin – The Ultimate Ad Blocker	Block ads, trackers, and malware sites with zero performance hit.	uBlock Origin is the most trusted open-source content blocker available. It blocks ads, tracking scripts, and malicious domains using curated filter lists. Unlike other blockers, it uses minimal memory and CPU. You can add custom filter rules, whitelist sites you trust, and even enable advanced mode for network-level blocking. It is the first extension every security-conscious user should install.	Ashutosh	Security	Ad Blocking	ad-blocker,privacy,security,tracker	ublock-origin-the-ultimate-ad-blocker
+2	Bitwarden – Free Password Manager	Store and autofill passwords securely with end-to-end encryption.	Bitwarden is an open-source password manager that stores your credentials in an encrypted vault. It supports autofill, password generation, secure notes, and two-factor authentication. The free tier covers unlimited devices, making it superior to LastPass. Self-hosting is also supported for advanced users. If you reuse passwords, this extension will change your life.	Ashutosh	Security	Passwords	password-manager,security,encryption,login	bitwarden-free-password-manager
+3	HTTPS Everywhere	Force HTTPS connections on every website you visit.	HTTPS Everywhere automatically redirects you from HTTP to HTTPS on thousands of websites, protecting your connection from eavesdropping and man-in-the-middle attacks. Developed by EFF, it uses a ruleset of over 25,000 sites. While modern browsers now include similar features, this extension gives you explicit control and audit logs of every upgrade.	Ashutosh	Security	Encryption	https,security,privacy,eff	https-everywhere
+4	Privacy Badger	Automatically learn and block invisible trackers.	Privacy Badger by EFF learns as you browse. It detects and blocks trackers that follow you across multiple sites, even ones not yet on block lists. Unlike static filter lists, it adapts to new tracking methods automatically. It works alongside uBlock Origin and does not break most websites.	Ashutosh	Security	Privacy	tracker,privacy,eff,security	privacy-badger
+5	NoScript Security Suite	Block JavaScript, Flash, and other executable content.	NoScript gives you total control over which scripts run in your browser. It blocks JavaScript, plugins, and iframes from untrusted sources. This prevents XSS attacks, clickjacking, and drive-by downloads. It has a steep learning curve but offers the strongest script-level protection available.	Ashutosh	Security	Script Blocking	javascript,xss,security,noscript	noscript-security-suite
+6	Decentraleyes	Block CDN tracking without breaking websites.	Many websites load jQuery, Bootstrap, and other libraries from Google CDN or Cloudflare, allowing these companies to track you. Decentraleyes bundles these libraries locally so requests never leave your browser. It works silently in the background and is compatible with uBlock Origin and Privacy Badger.	Ashutosh	Security	Privacy	cdn,tracking,privacy,security	decentraleyes
+7	ClearURLs	Remove tracking parameters from URLs automatically.	URLs often contain tracking parameters like utm_source, fbclid, and gclid that identify you across sites. ClearURLs strips these parameters automatically from every link you click, preventing cross-site tracking without affecting the destination page.	Ashutosh	Security	Privacy	url,tracking,privacy,utm	clearurls
+8	Cookie AutoDelete	Automatically delete cookies when you close a tab.	Cookie AutoDelete removes cookies from closed tabs automatically, preventing sites from tracking you between sessions. You can whitelist sites you want to stay logged into. It supports Firefox and Chrome and integrates with container tabs for advanced privacy setups.	Ashutosh	Security	Cookies	cookies,privacy,tracking,security	cookie-autodelete
+9	Malwarebytes Browser Guard	Block malicious websites and browser hijackers in real time.	Malwarebytes Browser Guard blocks scam pages, phishing sites, and malicious ads before they load. It uses Malwarebytes threat intelligence database updated in real time. It also blocks tech support scams and browser notification spam, which are increasingly common attack vectors.	Ashutosh	Security	Malware	malware,phishing,security,scam	malwarebytes-browser-guard
+10	MetaMask	A secure crypto wallet and gateway to Web3 apps.	MetaMask is the most popular browser wallet for Ethereum and EVM-compatible chains. It lets you store, send, and receive crypto, interact with DeFi protocols, and sign into Web3 apps. It includes built-in phishing detection and transaction simulation to protect against scams.	Ashutosh	Security	Web3	crypto,ethereum,web3,wallet	metamask
+11	Notion Web Clipper	Save any webpage directly to your Notion workspace.	Notion Web Clipper lets you save articles, tweets, and webpages directly into any Notion database. You can choose which workspace and page to save to, add tags, and edit the saved content immediately. It is essential for researchers and note-takers who use Notion as their second brain.	Ashutosh	Productivity	Note Taking	notion,clipper,notes,productivity	notion-web-clipper
+12	Todoist for Chrome	Capture tasks from any webpage instantly.	Todoist's Chrome extension lets you add tasks with one click while browsing. You can set due dates, priorities, and projects without leaving the tab. It also detects dates in text and pre-fills them. If you use Todoist as your task manager, this extension is non-negotiable.	Ashutosh	Productivity	Task Management	todoist,tasks,productivity,gtd	todoist-for-chrome
+13	OneTab	Convert all open tabs into a shareable list instantly.	OneTab collapses all your open tabs into a single list, reducing memory usage by up to 95%. You can restore tabs individually or all at once. Lists can be exported as URLs or shared as a webpage. It is the simplest solution for tab hoarders.	Ashutosh	Productivity	Tab Management	tabs,memory,productivity,onetab	onetab
+14	Momentum	Replace new tabs with a personal dashboard.	Momentum replaces the default new tab page with a beautiful dashboard showing the time, your daily focus goal, weather, and an inspirational quote. It nudges you to define one important task each day and keeps it visible. A premium version adds integrations with Todoist, Asana, and more.	Ashutosh	Productivity	Focus	newtab,focus,dashboard,productivity	momentum
+15	StayFocusd	Block distracting websites during work hours.	StayFocusd lets you set daily time limits on distracting websites. Once the limit is hit, the site is blocked for the rest of the day. The Nuclear Option blocks all sites except whitelisted ones. It is brutal, effective, and exactly what procrastinators need.	Ashutosh	Productivity	Focus	focus,blocking,distraction,productivity	stayfocusd
+16	Grammarly	Real-time grammar and spelling corrections everywhere.	Grammarly checks grammar, spelling, punctuation, and tone across every text field in your browser. It works in Gmail, Google Docs, LinkedIn, and most web forms. The premium version adds style suggestions, clarity improvements, and plagiarism detection.	Ashutosh	Productivity	Writing	grammar,writing,spelling,productivity	grammarly
+17	Loom Screen Recorder	Record your screen and share instantly with a link.	Loom records your screen, webcam, and microphone simultaneously and uploads the video automatically. You get a shareable link within seconds. It is ideal for async communication, bug reports, and tutorials. Free tier supports unlimited recordings up to 5 minutes.	Ashutosh	Productivity	Recording	screen-recorder,loom,video,productivity	loom-screen-recorder
+18	Workona Tab Manager	Organize tabs into workspaces for different projects.	Workona lets you create named workspaces for different projects, saving and restoring sets of tabs on demand. It syncs across devices and integrates with Google Drive, Asana, and Notion. If you work across multiple projects daily, it replaces the chaos of hundreds of tabs.	Ashutosh	Productivity	Tab Management	workspaces,tabs,productivity,workona	workona-tab-manager
+19	Dark Reader	Enable dark mode on every website automatically.	Dark Reader applies a dark theme to every website using smart inversion and contrast adjustments. You can customize brightness, contrast, sepia filter, and font. It works on sites that do not natively support dark mode and significantly reduces eye strain during night browsing.	Ashutosh	Productivity	Accessibility	dark-mode,eye-strain,accessibility,productivity	dark-reader
+20	Speechify	Listen to any text on the web read aloud.	Speechify converts articles, PDFs, and web content into audio using natural-sounding AI voices. You can listen at up to 4.5x speed. It is a game changer for people who consume large amounts of text daily or have reading difficulties.	Ashutosh	Productivity	Reading	tts,reading,audio,productivity	speechify
+21	Clockify Time Tracker	Track time spent on tasks directly from your browser.	Clockify's extension adds a timer button to popular apps like Trello, Jira, Asana, and GitHub. One click starts tracking time against a project. Reports are available in the Clockify dashboard. The free tier is unlimited, making it the best free time tracker available.	Ashutosh	Productivity	Time Tracking	time-tracker,clockify,productivity,freelance	clockify-time-tracker
+22	Session Buddy	Save and restore browser sessions with one click.	Session Buddy saves your current set of tabs as a named session that you can restore any time. It also auto-saves sessions periodically so you never lose tabs after a crash. You can search through saved sessions and export them as CSV or JSON.	Ashutosh	Productivity	Tab Management	sessions,tabs,backup,productivity	session-buddy
+23	ChatGPT for Google	Show ChatGPT responses alongside Google search results.	ChatGPT for Google displays ChatGPT answers next to your Google, Bing, and DuckDuckGo search results. It uses your OpenAI account and supports GPT-4. You can copy responses, trigger them manually, and customize which search engines it activates on. A must-have for power searchers.	Ashutosh	AI	ChatGPT	chatgpt,ai,search,openai	chatgpt-for-google
+24	Merlin AI	Access GPT-4 on any webpage with a keyboard shortcut.	Merlin brings GPT-4 to any webpage. Select text and hit Ctrl+M to summarize, translate, explain, or rewrite it. It also works in Gmail for drafting replies and on YouTube for summarizing videos. Free tier includes 50 queries per day.	Ashutosh	AI	Assistant	ai,gpt4,merlin,assistant	merlin-ai
+25	Sider AI	ChatGPT sidebar that works on every website.	Sider is a persistent AI sidebar you can open on any page. It can summarize articles, answer questions about page content, translate text, and generate writing. It supports Claude, GPT-4, and Gemini. The sidebar stays open as you scroll, making it ideal for research.	Ashutosh	AI	Sidebar	ai,sidebar,chatgpt,claude	sider-ai
+26	Otter.ai	AI meeting transcription directly in your browser.	Otter.ai transcribes Google Meet, Zoom, and Microsoft Teams meetings in real time. It identifies speakers, generates summaries, and lets you search transcripts. The free tier provides 300 minutes of transcription per month. Essential for anyone who attends frequent video meetings.	Ashutosh	AI	Transcription	ai,transcription,meetings,otter	otterai
+27	Compose AI	AI-powered autocomplete for writing everywhere.	Compose AI adds autocomplete to every text field in your browser. It learns your writing style and suggests completions as you type. Works in Gmail, Google Docs, Notion, Slack, and more. The free tier covers unlimited autocomplete, making it one of the best free AI writing tools.	Ashutosh	AI	Writing	ai,autocomplete,writing,compose	compose-ai
+28	Wiseone	AI reading assistant for complex articles.	Wiseone adds AI-powered features to articles you read. It can simplify complex terms, fact-check claims, suggest related articles, and provide a one-click summary. It works on news sites, research papers, and blogs. Ideal for students and researchers.	Ashutosh	AI	Reading	ai,reading,research,wiseone	wiseone
+29	Fireflies.ai	AI notetaker for web meetings.	Fireflies.ai joins your Google Meet and Zoom calls automatically and records, transcribes, and summarizes them. You get an AI-generated meeting summary with action items in your inbox after every call. It integrates with Slack, Notion, HubSpot, and Salesforce.	Ashutosh	AI	Meetings	ai,meetings,transcription,fireflies	firefliesai
+30	MaxAI.me	One-click AI on any website.	MaxAI.me lets you use Claude, GPT-4, and Gemini on any webpage. It can rewrite emails, summarize pages, translate content, and answer questions about what you are reading. The interface is clean and the free tier is generous.	Ashutosh	AI	Assistant	ai,maxai,claude,gpt4	maxaime
+31	Perplexity AI	AI-powered search with cited answers.	The Perplexity extension gives you a search bar on every new tab and lets you highlight text on any page to ask Perplexity about it. Answers include citations from real sources, making it more trustworthy than plain ChatGPT for factual research.	Ashutosh	AI	Search	ai,search,perplexity,research	perplexity-ai
+32	Monica AI	All-in-one AI assistant sidebar.	Monica brings GPT-4, Claude, and Gemini into one sidebar. It can summarize YouTube videos, translate pages, write emails, and answer questions about any webpage. The free tier is limited but the paid plan is affordable at under 10 dollars per month.	Ashutosh	AI	Assistant	ai,monica,sidebar,assistant	monica-ai
+33	Wappalyzer	Detect the tech stack of any website instantly.	Wappalyzer identifies frameworks, CMS platforms, databases, analytics tools, and CDNs used by any website. It shows results as a popup with categorized technology cards. Essential for competitive research, sales prospecting, and developer curiosity.	Ashutosh	Tools	Developer	wappalyzer,tech-stack,developer,tools	wappalyzer
+34	JSON Viewer	Format and syntax-highlight JSON in the browser.	JSON Viewer formats raw JSON responses into a collapsible, syntax-highlighted tree. It works on any URL returning JSON, making API debugging significantly easier. You can search, collapse nodes, and copy individual values. A staple for every backend developer.	Ashutosh	Tools	Developer	json,developer,api,tools	json-viewer
+35	Lighthouse	Audit any webpage for performance, SEO, and accessibility.	Lighthouse runs automated audits on any webpage and scores it across performance, accessibility, SEO, and best practices. It provides specific recommendations for improvement. Available in Chrome DevTools and as a standalone extension for quick audits.	Ashutosh	Tools	Developer	lighthouse,performance,seo,developer	lighthouse
+36	ColorZilla	Pick colors from any webpage with an eyedropper.	ColorZilla is an advanced color picker that lets you sample colors from any element on a webpage. It shows the hex, RGB, and HSL values and maintains a history of recently picked colors. It also includes a gradient generator and CSS color editor.	Ashutosh	Tools	Design	color,design,css,developer	colorzilla
+37	WhatFont	Identify fonts used on any webpage by hovering.	WhatFont lets you hover over any text on a webpage to instantly see the font family, size, weight, line height, and color. It also detects fonts served via Google Fonts or Typekit. Indispensable for designers and frontend developers.	Ashutosh	Tools	Design	fonts,design,css,developer	whatfont
+38	Web Developer	A toolbar of web development tools and utilities.	The Web Developer extension adds a toolbar with over 100 tools for inspecting and manipulating webpages. You can disable JavaScript, resize the browser to specific dimensions, outline elements, validate HTML, and much more. It has been a developer staple since the Firefox era.	Ashutosh	Tools	Developer	developer,tools,css,html	web-developer
+39	Redux DevTools	Inspect Redux state and actions in real time.	Redux DevTools lets you inspect every action dispatched in a Redux-powered React app, travel back through state history, and replay actions. It is essential for debugging complex React applications and is supported by Redux, Zustand, and other state managers.	Ashutosh	Tools	Developer	redux,react,developer,debugging	redux-devtools
+40	Octotree	GitHub code browser with a file tree sidebar.	Octotree adds a file tree sidebar to GitHub repositories, making it easy to navigate large codebases without cloning them. It supports private repos with a personal access token and works on GitHub, GitLab, and Bitbucket.	Ashutosh	Tools	Developer	github,git,developer,octotree	octotree
+41	Postman Interceptor	Capture browser requests and send them to Postman.	Postman Interceptor captures HTTP requests made by your browser and sends them directly to the Postman app for testing and modification. This eliminates the need to manually reconstruct complex API calls with cookies and auth headers.	Ashutosh	Tools	Developer	postman,api,developer,http	postman-interceptor
+42	BuiltWith Technology Profiler	Deep tech stack analysis for any website.	BuiltWith provides detailed technology profiling beyond Wappalyzer, including hosting providers, email services, payment processors, and marketing tools. It also shows historical technology usage and is popular with sales and growth teams.	Ashutosh	Tools	Developer	builtwith,tech-stack,developer,tools	builtwith-technology-profiler
+43	Google Translate	Translate any selected text or entire pages instantly.	Google Translate's extension lets you translate selected text with a single click or translate an entire webpage while preserving its layout. It supports over 100 languages and integrates with the browser's right-click menu for fast access.	Ashutosh	Utility	Translation	translate,google,language,utility	google-translate
+44	Honey	Automatically find and apply coupon codes at checkout.	Honey scans the web for valid coupon codes and applies them automatically at checkout on thousands of shopping sites. It also tracks price history on Amazon and notifies you when prices drop on saved items. Completely free and saves real money.	Ashutosh	Utility	Shopping	coupons,shopping,honey,deals	honey
+45	Picture-in-Picture Extension	Watch videos in a floating window while you work.	Google's official Picture-in-Picture extension lets you detach any HTML5 video into a floating window that stays on top of other apps. Works on YouTube, Netflix, Twitch, and most video sites. Perfect for watching tutorials while coding.	Ashutosh	Utility	Video	pip,video,multitasking,youtube	picture-in-picture-extension
+46	Screenity	Powerful free screen recorder with annotation tools.	Screenity is a free open-source screen recorder with annotation features. You can draw, highlight, add text, and blur sensitive areas while recording. It exports to MP4 or GIF and works entirely in the browser with no account required.	Ashutosh	Utility	Recording	screen-recorder,annotation,screenity,free	screenity
+47	Read Aloud	Text to speech for any webpage or PDF.	Read Aloud uses natural AI voices to read webpages and PDFs aloud. You can control speed, pitch, and voice. It highlights each word as it is spoken. Supports over 40 languages and works on most websites including Medium, Wikipedia, and news sites.	Ashutosh	Utility	Accessibility	tts,accessibility,reading,audio	read-aloud
+48	Imagus	Zoom into images and videos by hovering.	Imagus enlarges thumbnails and images by simply hovering over them, without opening a new tab. It works on Google Images, Reddit, Twitter, and most image-heavy sites. It also previews linked pages and videos on hover.	Ashutosh	Utility	Images	images,zoom,hover,imagus	imagus
+49	Tabby Cat	Adorable cat photos on every new tab.	Tabby Cat replaces your new tab with a randomly generated animated cat character. Each cat has a unique name, accessories, and personality. It is not productive at all, but it makes opening a new tab genuinely delightful. Sometimes that matters.	Ashutosh	Utility	Fun	cats,fun,newtab,cute	tabby-cat
+50	The Great Suspender	Suspend inactive tabs to save memory.	The Great Suspender automatically suspends tabs that have not been active for a set period, freeing up RAM and CPU. Suspended tabs are restored instantly when you click on them. Essential if you regularly keep 20 or more tabs open.	Ashutosh	Utility	Tab Management	tabs,memory,performance,suspender	the-great-suspender`
 
-const slugify = (value) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '')
+const estimateReadingTime = (content) => {
+  const words = content.trim().split(/\s+/).length
+  const minutes = Math.max(1, Math.round(words / 200))
+  return `${minutes} min read`
+}
 
 const addDays = (startDate, offsetDays) => {
   const next = new Date(startDate)
@@ -243,31 +64,26 @@ const addDays = (startDate, offsetDays) => {
 
 const startDate = new Date('2026-01-01')
 
-export const posts = categoryBlueprints.flatMap((blueprint, categoryIndex) =>
-  blueprint.topics.map((topic, topicIndex) => {
-    const id = categoryIndex * 50 + topicIndex + 1
-    const subcategory = blueprint.subcategories[topicIndex % blueprint.subcategories.length]
-    const title = `${topic}: Practical Guide for 2026`
+export const posts = rawPosts
+  .split('\n')
+  .slice(1)
+  .map((line, index) => {
+    const [id, title, excerpt, content, author, category, subcategory, tags, slug] = line.split('\t')
 
     return {
-      id,
-      slug: slugify(`${blueprint.category}-${topic}-${id}`),
+      id: Number(id),
       title,
-      excerpt: `Research-backed tactics for ${topic.toLowerCase()}, including implementation notes, risks, and measurable outcomes.`,
-      content: [
-        `${topic} has become a recurring priority for teams optimizing browser-centered work. This article synthesizes vendor documentation, field reports from practitioners, and benchmark studies to separate durable practices from short-term trends.`,
-        `The guide covers tooling criteria, rollout sequencing, and governance decisions so teams can evaluate extension impact without sacrificing performance or privacy. We also compare lightweight and enterprise-grade options to show where each approach is most effective.`,
-        `By the end, you will have a repeatable checklist for selecting, piloting, and maintaining extensions focused on ${topic.toLowerCase()}. The recommendations prioritize measurable outcomes such as reduced cycle time, fewer defects, and better user trust signals.`,
-      ],
-      category: blueprint.category,
+      excerpt,
+      content: [content],
+      author,
+      category,
       subcategory,
-      tags: [...blueprint.tags, slugify(subcategory)],
-      author: 'Admin',
-      publishedAt: addDays(startDate, id - 1),
-      readingTime: `${4 + (topicIndex % 5)} min read`,
+      tags: tags.split(',').map((tag) => tag.trim()),
+      slug,
+      publishedAt: addDays(startDate, index),
+      readingTime: estimateReadingTime(content),
     }
-  }),
-)
+  })
 
 export const categories = [...new Set(posts.map((post) => post.category))]
 
