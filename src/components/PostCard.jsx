@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom'
 const PostCard = ({ post }) => {
   return (
     <article className="post-card">
+      <img
+        className="post-card-image"
+        src={post.imageUrl}
+        alt={`${post.title} cover`}
+        loading="lazy"
+      />
       <div className="post-meta">
         <span>{post.category}</span>
         <span>{post.subcategory}</span>
@@ -11,6 +17,9 @@ const PostCard = ({ post }) => {
         <Link to={`/post/${post.slug}`}>{post.title}</Link>
       </h2>
       <p>{post.excerpt}</p>
+      <a className="extension-link" href={post.extensionUrl} target="_blank" rel="noreferrer">
+        View Extension ↗
+      </a>
       <div className="post-footer">
         <small>
           {post.publishedAt} • {post.readingTime}

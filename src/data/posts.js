@@ -242,6 +242,20 @@ The extension requires minimal configuration after installation. Enable auto-sav
 }
 
 
+
+const toSearchQuery = (title) =>
+  title
+    .replace(/[–—].*$/, '')
+    .replace(/[^\w\s-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+const buildExtensionUrl = (title) =>
+  `https://chromewebstore.google.com/search/${encodeURIComponent(toSearchQuery(title))}`
+
+const buildCoverImageUrl = (title) =>
+  `https://dummyimage.com/1200x675/e2e8f0/0f172a&text=${encodeURIComponent(title)}`
+
 const estimateReadingTime = (content) => {
   const words = content.trim().split(/\s+/).length
   const minutes = Math.max(1, Math.round(words / 200))
@@ -273,6 +287,8 @@ export const posts = rawPosts
       subcategory,
       tags: tags.split(',').map((tag) => tag.trim()),
       slug,
+      extensionUrl: buildExtensionUrl(title),
+      imageUrl: buildCoverImageUrl(title),
       publishedAt: addDays(startDate, index),
       readingTime: estimateReadingTime(resolvedContent),
     }
