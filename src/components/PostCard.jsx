@@ -4,10 +4,13 @@ const PostCard = ({ post }) => {
   return (
     <article className="post-card">
       <img
-        className="post-card-image"
-        src={post.imageUrl}
-        alt={`${post.title} cover`}
+        className="post-card-logo"
+        src={post.logoUrl}
+        alt={`${post.title} logo`}
         loading="lazy"
+        onError={(event) => {
+          event.currentTarget.src = post.imageUrl
+        }}
       />
       <div className="post-meta">
         <span>{post.category}</span>

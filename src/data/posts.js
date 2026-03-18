@@ -256,6 +256,12 @@ const buildExtensionUrl = (title) =>
 const buildCoverImageUrl = (title) =>
   `https://dummyimage.com/1200x675/e2e8f0/0f172a&text=${encodeURIComponent(title)}`
 
+const buildLogoUrl = (title) =>
+  `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(title)}&radius=20&fontWeight=700`
+
+const buildPreviewImageUrl = (title) =>
+  `https://image.thum.io/get/width/1200/crop/675/noanimate/${buildExtensionUrl(title)}`
+
 const estimateReadingTime = (content) => {
   const words = content.trim().split(/\s+/).length
   const minutes = Math.max(1, Math.round(words / 200))
@@ -288,6 +294,8 @@ export const posts = rawPosts
       tags: tags.split(',').map((tag) => tag.trim()),
       slug,
       extensionUrl: buildExtensionUrl(title),
+      logoUrl: buildLogoUrl(title),
+      previewImageUrl: buildPreviewImageUrl(title),
       imageUrl: buildCoverImageUrl(title),
       publishedAt: addDays(startDate, index),
       readingTime: estimateReadingTime(resolvedContent),

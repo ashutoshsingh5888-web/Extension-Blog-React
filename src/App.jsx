@@ -179,7 +179,15 @@ const PostPage = () => {
           {post.category} / {post.subcategory}
         </p>
         <h1>{post.title}</h1>
-        <img className="post-hero-image" src={post.imageUrl} alt={`${post.title} cover`} />
+        <img
+          className="post-hero-image"
+          src={post.previewImageUrl}
+          alt={`${post.title} preview`}
+          loading="lazy"
+          onError={(event) => {
+            event.currentTarget.src = post.imageUrl
+          }}
+        />
         <p>{post.excerpt}</p>
         <p>
           <a className="extension-link" href={post.extensionUrl} target="_blank" rel="noreferrer">
