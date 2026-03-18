@@ -173,18 +173,23 @@ button.active {
   }
 }
 
-.post-card-image,
+.post-card-logo,
 .post-hero-image {
-  width: 100%;
   border-radius: 10px;
   border: 1px solid #cbd5e1;
   object-fit: cover;
   background: #e2e8f0;
 }
 
-.post-card-image {
-  aspect-ratio: 16 / 9;
+.post-card-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
   margin-bottom: 12px;
+}
+
+.post-hero-image {
+  width: 100%;
 }
 
 .post-hero-image {
