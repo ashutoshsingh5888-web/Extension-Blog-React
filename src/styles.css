@@ -172,3 +172,33 @@ button.active {
     display: none;
   }
 }
+
+.post-card-image,
+.post-hero-image {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  object-fit: cover;
+  background: #e2e8f0;
+}
+
+.post-card-image {
+  aspect-ratio: 16 / 9;
+  margin-bottom: 12px;
+}
+
+.post-hero-image {
+  margin: 8px 0 16px;
+}
+
+.extension-link {
+  display: inline-block;
+  margin: 8px 0 12px;
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.extension-link:hover {
+  text-decoration: underline;
+}
