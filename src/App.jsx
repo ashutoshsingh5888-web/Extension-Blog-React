@@ -178,14 +178,23 @@ const PostPage = () => {
         <p className="breadcrumbs">
           {post.category} / {post.subcategory}
         </p>
+        <img
+          className="post-page-logo"
+          src={post.logoUrl}
+          alt={`${post.title} logo`}
+          loading="lazy"
+          onError={(event) => {
+            event.currentTarget.style.display = 'none'
+          }}
+        />
         <h1>{post.title}</h1>
         <img
           className="post-hero-image"
-          src={post.previewImageUrl}
-          alt={`${post.title} preview`}
+          src={post.imageUrl}
+          alt={`${post.title} meta image`}
           loading="lazy"
           onError={(event) => {
-            event.currentTarget.src = post.imageUrl
+            event.currentTarget.src = post.previewImageUrl
           }}
         />
         <p>{post.excerpt}</p>

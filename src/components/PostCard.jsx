@@ -4,6 +4,15 @@ const PostCard = ({ post }) => {
   return (
     <article className="post-card">
       <img
+        className="post-card-image"
+        src={post.imageUrl}
+        alt={`${post.title} meta image`}
+        loading="lazy"
+        onError={(event) => {
+          event.currentTarget.src = post.previewImageUrl
+        }}
+      />
+      <img
         className="post-card-logo"
         src={post.logoUrl}
         alt={`${post.title} logo`}
