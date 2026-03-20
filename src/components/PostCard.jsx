@@ -5,20 +5,11 @@ const PostCard = ({ post }) => {
     <article className="post-card">
       <img
         className="post-card-image"
-        src={post.imageUrl}
-        alt={`${post.title} meta image`}
-        loading="lazy"
-        onError={(event) => {
-          event.currentTarget.src = post.previewImageUrl
-        }}
-      />
-      <img
-        className="post-card-logo"
         src={post.logoUrl}
         alt={`${post.title} logo`}
         loading="lazy"
         onError={(event) => {
-          event.currentTarget.src = post.imageUrl
+          event.currentTarget.src = post.previewImageUrl
         }}
       />
       <div className="post-meta">

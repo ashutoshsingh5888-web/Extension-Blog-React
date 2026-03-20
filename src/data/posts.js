@@ -310,7 +310,7 @@ const logoHunterDomainBySlug = {
 const buildLogoUrl = (slug, title) => {
   const domain = logoHunterDomainBySlug[slug]
   if (domain) {
-    return `https://logo.clearbit.com/${domain}`
+    return `https://hunter.io/api/logo/${domain}?size=256`
   }
 
   return `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(title)}&radius=20&fontWeight=700`
