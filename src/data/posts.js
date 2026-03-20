@@ -323,7 +323,8 @@ const buildPreviewImageUrl = (title) =>
   `https://image.thum.io/get/width/1200/crop/675/noanimate/${buildExtensionUrl(title)}`
 
 const estimateReadingTime = (content) => {
-  const words = content.trim().split(/\s+/).length
+  const normalized = typeof content === 'string' ? content.trim() : ''
+  const words = normalized ? normalized.split(/\s+/).length : 0
   const minutes = Math.max(1, Math.round(words / 200))
   return `${minutes} min read`
 }
@@ -340,8 +341,20 @@ export const posts = rawPosts
   .split('\n')
   .slice(1)
   .map((line, index) => {
-    const [id, title, excerpt, content, author, category, subcategory, tags, slug] = line.split('\t')
-    const resolvedContent = (fullProductivityContentBySlug[slug] ?? content).trim()
+    const [
+      id = '',
+      title = '',
+      excerpt = '',
+      content = '',
+      author = '',
+      category = '',
+      subcategory = '',
+      tags = '',
+      slug = '',
+    ] = (typeof line === 'string' ? line : '').split('\t')
+
+    const contentCandidate = fullProductivityContentBySlug[slug] ?? content
+    const resolvedContent = typeof contentCandidate === 'string' ? contentCandidate.trim() : ''
 
     return {
       id: Number(id),
@@ -351,7 +364,10 @@ export const posts = rawPosts
       author,
       category,
       subcategory,
-      tags: tags.split(',').map((tag) => tag.trim()),
+      tags: tags
+        .split(',')
+        .map((tag) => tag.trim())
+        .filter(Boolean),
       slug,
       extensionUrl: buildExtensionUrl(title),
       logoUrl: buildLogoUrl(slug, title),
