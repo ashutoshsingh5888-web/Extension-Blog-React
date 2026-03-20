@@ -126,8 +126,9 @@ button.active {
   aspect-ratio: 16 / 9;
   border-radius: 10px;
   border: 1px solid #cbd5e1;
-  object-fit: cover;
-  background: #e2e8f0;
+  object-fit: contain;
+  background: #fff;
+  padding: 16px;
   margin-bottom: 12px;
 }
 
@@ -209,6 +210,10 @@ button.active {
 
 .post-hero-image {
   width: 100%;
+  min-height: 320px;
+  object-fit: contain;
+  background: #fff;
+  padding: 28px;
 }
 
 .post-hero-image {

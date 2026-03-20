@@ -190,8 +190,8 @@ const PostPage = () => {
         <h1>{post.title}</h1>
         <img
           className="post-hero-image"
-          src={post.imageUrl}
-          alt={`${post.title} meta image`}
+          src={post.logoUrl}
+          alt={`${post.title} logo`}
           loading="lazy"
           onError={(event) => {
             event.currentTarget.src = post.previewImageUrl
