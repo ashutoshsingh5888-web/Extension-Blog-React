@@ -339,9 +339,12 @@ const startDate = new Date('2026-01-01')
 export const posts = rawPosts
   .split('\n')
   .slice(1)
+  .map((line) => line.trim())
+  .filter(Boolean)
   .map((line, index) => {
-    const [id, title, excerpt, content, author, category, subcategory, tags, slug] = line.split('\t')
-    const resolvedContent = (fullProductivityContentBySlug[slug] ?? content).trim()
+    const [id = '', title = '', excerpt = '', content = '', author = '', category = '', subcategory = '', tags = '', slug = ''] =
+      line.split('\t')
+    const resolvedContent = (fullProductivityContentBySlug[slug] ?? content ?? '').trim()
 
     return {
       id: Number(id),
@@ -351,7 +354,10 @@ export const posts = rawPosts
       author,
       category,
       subcategory,
-      tags: tags.split(',').map((tag) => tag.trim()),
+      tags: tags
+        .split(',')
+        .map((tag) => tag.trim())
+        .filter(Boolean),
       slug,
       extensionUrl: buildExtensionUrl(title),
       logoUrl: buildLogoUrl(slug, title),
