@@ -47,3 +47,12 @@ npm run preview
   - `src/components/Seo.jsx`
   - `public/robots.txt`
   - `public/sitemap.xml`
+
+## Deploy to Netlify
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+- This repo includes a `netlify.toml` file that sets the build/publish paths and adds an SPA fallback redirect to `index.html`.
+- If your site shows a blank page, verify the deploy log includes `vite build` and that the deployed artifact contains both:
+  - `index.html`
+  - `assets/index-*.js` and `assets/index-*.css`
