@@ -256,8 +256,65 @@ const buildExtensionUrl = (title) =>
 const buildCoverImageUrl = (title) =>
   `https://dummyimage.com/1200x675/e2e8f0/0f172a&text=${encodeURIComponent(title)}`
 
-const buildLogoUrl = (title) =>
-  `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(title)}&radius=20&fontWeight=700`
+const logoHunterDomainBySlug = {
+  'ublock-origin-the-ultimate-ad-blocker': 'ublockorigin.com',
+  'bitwarden-free-password-manager': 'bitwarden.com',
+  'https-everywhere': 'eff.org',
+  'privacy-badger': 'eff.org',
+  'noscript-security-suite': 'noscript.net',
+  decentraleyes: 'decentraleyes.org',
+  clearurls: 'clearurls.xyz',
+  'cookie-autodelete': 'cookieautodelete.com',
+  'malwarebytes-browser-guard': 'malwarebytes.com',
+  metamask: 'metamask.io',
+  'notion-web-clipper-save-web-to-notion': 'notion.so',
+  'todoist-for-chrome-capture-tasks-instantly': 'todoist.com',
+  'onetab-tame-your-tab-chaos': 'one-tab.com',
+  'momentum-your-daily-focus-dashboard': 'momentumdash.com',
+  'stayfocusd-anti-procrastination-extension': 'stayfocusd.com',
+  'grammarly-ai-writing-assistant-everywhere': 'grammarly.com',
+  'loom-instant-screen-recording-sharing': 'loom.com',
+  'dark-reader-dark-mode-every-website': 'darkreader.org',
+  'clockify-free-time-tracker-any-workflow': 'clockify.me',
+  'session-buddy-save-restore-browser-sessions': 'sessionbuddy.com',
+  'chatgpt-for-google': 'chatgpt.com',
+  'merlin-ai': 'getmerlin.in',
+  'sider-ai': 'sider.ai',
+  otterai: 'otter.ai',
+  'compose-ai': 'compose.ai',
+  wiseone: 'wiseone.io',
+  firefliesai: 'fireflies.ai',
+  maxaime: 'maxai.me',
+  'perplexity-ai': 'perplexity.ai',
+  'monica-ai': 'monica.im',
+  wappalyzer: 'wappalyzer.com',
+  'json-viewer': 'jsonviewer.stack.hu',
+  lighthouse: 'developer.chrome.com',
+  colorzilla: 'colorzilla.com',
+  whatfont: 'whatfonttool.com',
+  'web-developer': 'chrispederick.com',
+  'redux-devtools': 'redux.js.org',
+  octotree: 'octotree.io',
+  'postman-interceptor': 'postman.com',
+  'builtwith-technology-profiler': 'builtwith.com',
+  'google-translate': 'translate.google.com',
+  honey: 'joinhoney.com',
+  'picture-in-picture-extension': 'google.com',
+  screenity: 'screenity.io',
+  'read-aloud': 'readaloud.app',
+  imagus: 'imagus.org',
+  'tabby-cat': 'tabbycat.club',
+  'the-great-suspender': 'greatsuspender.com',
+}
+
+const buildLogoUrl = (slug, title) => {
+  const domain = logoHunterDomainBySlug[slug]
+  if (domain) {
+    return `https://logo.clearbit.com/${domain}`
+  }
+
+  return `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(title)}&radius=20&fontWeight=700`
+}
 
 const buildPreviewImageUrl = (title) =>
   `https://image.thum.io/get/width/1200/crop/675/noanimate/${buildExtensionUrl(title)}`
@@ -294,7 +351,7 @@ export const posts = rawPosts
       tags: tags.split(',').map((tag) => tag.trim()),
       slug,
       extensionUrl: buildExtensionUrl(title),
-      logoUrl: buildLogoUrl(title),
+      logoUrl: buildLogoUrl(slug, title),
       previewImageUrl: buildPreviewImageUrl(title),
       imageUrl: buildCoverImageUrl(title),
       publishedAt: addDays(startDate, index),
